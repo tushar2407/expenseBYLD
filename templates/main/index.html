@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        
+    <style>
+        body {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */ 
+  justify-content: center;
+  height: 100vh;
+  background: linear-gradient(45deg, #ea4f4c 0%, #6d0019 100%);
+}
+body .signature {
+  font-style: italic;
+  font-size: 12px;
+  color: #212121;
+  padding-top: 15px;
+  transition: all 0.3s ease-in-out;
+}
+body .signature:hover {
+  color: white;
+}
+
+.navigationWrapper {
+ /* position: relative; */
+  display: flex;
+  align-items: center;  
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #222;
+  box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.25);
+  color: white;
+  text-transform: uppercase;
+  overflow: hidden;
+  /*width: 600px;*/
+}
+.navigationWrapper .logoWrapper {
+  display: flex;
+}
+.navigationWrapper .logoWrapper .stylish {
+  font-weight: bold;
+}
+.navigationWrapper .logoWrapper .logo {
+  padding-left: 4px;
+  color: #ea4f4c;
+}
+.navigationWrapper .navigation {
+  display: flex;
+  list-style-type: none;
+}
+.navigationWrapper .navigation li {
+  opacity: 1;
+  list-style-type: none;
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+.navigationWrapper .navigation .parent {
+  padding: 0 10px;
+  cursor: pointer;
+}
+.navigationWrapper .navigation .parent .link {
+  /* position: relative; */
+  display: flex;
+ /* align-items: center; */
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+  color: white;
+}
+.navigationWrapper .navigation .parent .link:hover {
+  color: #ea4f4c;
+}
+.navigationWrapper .navigation .parent .link .fa-minus {
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+/* position: absolute; */
+  left: -16px;
+  top: 3px;
+}
+.navigationWrapper .navigation .parent .link .fa-plus {
+  opacity: 1;
+  transition: all 0.3s ease-in-out;
+}
+.navigationWrapper .navigation .parent .link .fas {
+  color: #ea4f4c;
+  margin: -2px 4px 0;
+  font-size: 10px;
+  transition: all 0.3s ease-in-out;
+}
+.navigationWrapper .navigation .subnavigation {
+  display: none;
+  list-style-type: none;
+  width: 500px;
+ /* position: absolute; */
+  top: 40%;
+  left: 25%;
+  margin: auto;
+  transition: all 0.3s ease-in-out;
+  background-color: #222;
+}
+.navigationWrapper .navigation .subnavigation li a {
+  font-size: 17px;
+  padding: 0 5px;
+}
+
+.active.parent {
+  transform: translate(-40px, -25px);
+}
+.active.parent .link {
+  font-size: 12px;
+}
+.active.parent .link .fa-minus {
+  opacity: 1 !important;
+  font-size: 8px;
+}
+.active.parent .link .fa-plus {
+  opacity: 0 !important;
+}
+.active.parent .subnavigation {
+  display: flex;
+}
+
+.active#clients .subnavigation {
+  transform: translate(-150px, 17px);
+}
+
+.active#services .subnavigation {
+  transform: translate(-290px, 17px);
+}
+
+.invisible {
+  opacity: 0 !important;
+  transform: translate(50px, 0);
+}
+.c{
+    background-color: #222 !important;
+  box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.25);
+  
+}
+.d{
+    text-align: center;
+}
+.e{
+    font-size:50px;
+}
+
+        </style>
+    <title>Index</title>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+   
+    <nav class="navigationWrapper ">
+        <div class="logoWrapper ">
+          <span class="stylish d e">Under</span>
+          <span class="logo d e">Construction</span>
+        </div>
+        
+      </nav>
+      <div class="c my-4" style="color:azure">
+        <div class="card c">
+          <div class="card-body c">
+            <form method="POST" action="">
+              {% csrf_token %}
+              <div class="form-group c">
+                <label for="exampleFormControlInput1">Mobile Number</label>
+                <input name="username" type="text" class="form-control" id="exampleFormControlInput1"
+                  placeholder="0123456789">
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlInput1">Password</label>
+                <input name="password" type="password" class="form-control" id="exampleFormControlInput1"
+                  placeholder="password">
+              </div>
+              <a href="{% url 'web' %}" class="btn btn-info" role="button">Login</a>
+              <a href="{% url 'inputs1' %}" class="btn btn-info" role="button">Signup</a>
+    
+            
+            </form>
+          </div>
+        </div>
+      </div>
+   
+<script>
+
+        var clients = document.getElementById('clients');
+        var services = document.getElementById('services');
+    
+        clients.addEventListener('click', function() {
+        $(clients).toggleClass("active");
+        $(".parent:not(#clients)").toggleClass("invisible");
+        }, false);
+    
+        services.addEventListener('click', function() {
+        $(services).toggleClass("active");
+        $(".parent:not(#services)").toggleClass("invisible");
+        }, false);
+    
+    </script>
+</body>
+</html>
